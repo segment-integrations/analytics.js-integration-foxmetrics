@@ -1,8 +1,9 @@
+'use strict';
 
-var Analytics = require('analytics.js-core').constructor;
-var integration = require('analytics.js-integration');
-var sandbox = require('clear-env');
-var tester = require('analytics.js-integration-tester');
+var Analytics = require('@segment/analytics.js-core').constructor;
+var integration = require('@segment/analytics.js-integration');
+var sandbox = require('@segment/clear-env');
+var tester = require('@segment/analytics.js-integration-tester');
 var FoxMetrics = require('../lib/');
 
 describe('FoxMetrics', function() {
@@ -74,7 +75,7 @@ describe('FoxMetrics', function() {
           undefined,
           undefined,
           window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname,
-          ''
+          document.referrer
         ]);
       });
 
@@ -209,7 +210,7 @@ describe('FoxMetrics', function() {
           'category',
           null,
           window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname,
-          ''
+          document.referrer
         ]);
       });
     });
