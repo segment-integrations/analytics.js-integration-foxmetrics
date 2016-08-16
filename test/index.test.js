@@ -220,8 +220,8 @@ describe('FoxMetrics', function() {
         analytics.stub(window._fxm, 'push');
       });
 
-      it('should track viewed product', function() {
-        analytics.track('viewed product', {
+      it('should track product viewed', function() {
+        analytics.track('product viewed', {
           sku: 'f84d349b',
           name: 'my-product',
           category: 'category'
@@ -235,8 +235,8 @@ describe('FoxMetrics', function() {
         ]);
       });
 
-      it('should track added product', function() {
-        analytics.track('added product', {
+      it('should track product added', function() {
+        analytics.track('product added', {
           id: 'c1ec1864',
           name: 'my-product',
           category: 'category'
@@ -250,8 +250,8 @@ describe('FoxMetrics', function() {
         ]);
       });
 
-      it('should track removed product', function() {
-        analytics.track('removed product', {
+      it('should track product removed', function() {
+        analytics.track('product removed', {
           sku: 'c1ec1864',
           name: 'my-product'
         });
@@ -264,8 +264,8 @@ describe('FoxMetrics', function() {
         ]);
       });
 
-      it('should track completed order', function() {
-        analytics.track('completed order', {
+      it('should track order completed', function() {
+        analytics.track('order completed', {
           orderId: '3723ee8a',
           total: 300,
           tax: 10,
