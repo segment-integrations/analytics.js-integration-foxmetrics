@@ -237,7 +237,7 @@ describe('FoxMetrics', function() {
 
       it('should track product added', function() {
         analytics.track('product added', {
-          id: 'c1ec1864',
+          product_id: 'c1ec1864',
           name: 'my-product',
           category: 'category'
         });
@@ -252,13 +252,15 @@ describe('FoxMetrics', function() {
 
       it('should track product removed', function() {
         analytics.track('product removed', {
+          product_id: 'yolo',
+          id: 'yolo2',
           sku: 'c1ec1864',
           name: 'my-product'
         });
 
         analytics.called(window._fxm.push, [
           '_fxm.ecommerce.removecartitem',
-          'c1ec1864',
+          'yolo',
           'my-product',
           undefined
         ]);
@@ -266,11 +268,12 @@ describe('FoxMetrics', function() {
 
       it('should track order completed', function() {
         analytics.track('order completed', {
-          orderId: '3723ee8a',
+          order_id: '3723ee8a',
           total: 300,
           tax: 10,
           shipping: 20,
           products: [{
+            product_id: 'charlie',
             sku: 'd370b4cd',
             name: 'sony pulse',
             category: 'tech',
@@ -293,7 +296,7 @@ describe('FoxMetrics', function() {
 
         analytics.deepEqual(window._fxm.push.args[1][0], [
           '_fxm.ecommerce.purchaseitem',
-          'd370b4cd',
+          'charlie',
           'sony pulse',
           'tech',
           1,
